@@ -1,1 +1,1 @@
-from nodes import Nodes
+from map_class import Map
