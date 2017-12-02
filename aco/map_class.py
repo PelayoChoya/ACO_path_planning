@@ -31,14 +31,19 @@ class Map:
                         if (newj>=0 and newj<jmax and newi >=0 and newi<imax):
                             if map_arr[newi][newj] == 1:
                                 edges.append({'FinalNode':(newi,newj),
-                                              'Pheromone': 0})
+                                              'Pheromone': 1.0, 'Probability':
+                                             0.0})
             return edges
 
     def __init__(self, map_name):
         self.in_map = self._read_map(map_name)
         self.occupancy_map = self._map_2_occupancy_map()
-        self.initial_node = np.where(self.in_map == 'S')
-        self.final_node = np.where(self.in_map == 'F')
+        self.initial_node = (int(np.where(self.in_map ==
+                                      'S')[0]),int(np.where(self.in_map ==
+                                                            'S')[1]))
+        self.final_node= (int(np.where(self.in_map ==
+                                      'F')[0]),int(np.where(self.in_map ==
+                                                            'F')[1]))
         self.nodes_array = self._create_nodes()
 
     def _create_nodes(self):
