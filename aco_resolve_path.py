@@ -5,7 +5,10 @@ from aco import AntColony
 
 if __name__ == '__main__':
     # Get the map
-    Map= Map('map1.txt')
-    Colony = AntColony(Map, 50, 20)
-    print Colony.calculate_path()
+    Map= Map('map2.txt')
+    Colony = AntColony(Map, 50, 25)
+    path = Colony.calculate_path()
+    print path
+    Map.represent_path(path)
+
 

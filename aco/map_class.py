@@ -73,3 +73,13 @@ class Map:
         plt.imshow(self.occupancy_map, cmap='gray', interpolation = 'nearest')
         plt.show()
         plt.close()
+
+    def represent_path(self, path):
+        ''' Represents the path in the map '''
+        x = []
+        y = []
+        for p in path:
+            x.append(p[1])
+            y.append(p[0])
+        plt.plot(x,y)
+        self.represent_map()
