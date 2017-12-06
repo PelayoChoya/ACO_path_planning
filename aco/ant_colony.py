@@ -128,7 +128,9 @@ class AntColony:
             the results path list'''
         self.paths.append(in_path)
 
-    def indices(self,lst, element):
+    def get_coincidence_indices(self,lst, element):
+        ''' Gets the indices of the coincidences
+            of elements in the path '''
         result = []
         offset = -1
         while True:
@@ -143,7 +145,7 @@ class AntColony:
             resulting path and deletes it '''
         res_path = list(in_path)
         for element in res_path:
-            coincidences = self.indices(res_path, element)
+            coincidences = self.get_coincidence_indices(res_path, element)
             # reverse de list to delete elements from back to front of the list
             coincidences.reverse()
             for i,coincidence in enumerate(coincidences):
