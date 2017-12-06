@@ -128,6 +128,30 @@ class AntColony:
             the results path list'''
         self.paths.append(in_path)
 
+    def indices(self,lst, element):
+        result = []
+        offset = -1
+        while True:
+            try:
+                offset = lst.index(element, offset+1)
+            except ValueError:
+                return result
+            result.append(offset)
+
+    def delete_loops(self, in_path):
+        ''' Checks if there is a loop in the
+            resulting path and deletes it '''
+        res_path = list(in_path)
+        for element in res_path:
+            coincidences = self.indices(res_path, element)
+            # reverse de list to delete elements from back to front of the list
+            coincidences.reverse()
+            for i,coincidence in enumerate(coincidences):
+                if not i == len(coincidences)-1:
+                    res_path[coincidences[i+1]:coincidence] = []
+
+        return res_path
+
     def calculate_path(self):
         ''' Carries out the process to
             get the best path '''
@@ -146,7 +170,7 @@ class AntColony:
                     ant.is_final_node_reached()
 
                 # Add the resulting path to the path list
-                self.add_to_path_results(ant.get_visited_nodes())
+                self.add_to_path_results(self.delete_loops(ant.get_visited_nodes()))
 
                 # Enable the ant for a new search
                 ant.enable_start_new_path()
