@@ -52,12 +52,13 @@ class AntColony:
             self.visited_nodes[1:] =[]
             self.actual_node= self.start_pos
 
-    def __init__(self, in_map, no_ants, iterations):
+    def __init__(self, in_map, no_ants, iterations, evaporation_factor,
+                 pheromone_adding_constant):
         self.map = in_map
         self.no_ants = no_ants
         self.iterations = iterations
-        self.evaporation_factor = 0.25
-        self.pheromone_adding_constant = 10.0
+        self.evaporation_factor = evaporation_factor
+        self.pheromone_adding_constant = pheromone_adding_constant
         self.paths = []
         self.ants = self.create_ants()
         self.best_result = []
