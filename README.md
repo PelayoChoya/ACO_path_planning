@@ -35,4 +35,4 @@ The maps have to be included in the maps directory. For a map to be valid, it mu
 
 A resulting path would be the following:
 
-![Path Image](https://user-images.githubusercontent.com/23075158/33764660-add571f8-dc15-11e7-839d-3c027dda80f9.png)
+![map3_2](https://user-images.githubusercontent.com/23075158/33822996-d2bd8668-de59-11e7-849a-313333f6d8bf.png)
